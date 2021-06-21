@@ -1,7 +1,7 @@
 import path from 'path'
 import {mount} from '@vue/test-utils'
+import {h} from 'vue'
 import mdxTransform from '../../mdx'
-import vueMergeProps from 'babel-helper-vue-jsx-merge-props'
 import {transformAsync as babelTransform} from '@babel/core'
 import {MDXProvider, mdx} from '../src'
 
@@ -13,7 +13,7 @@ const run = async value => {
   const {code} = await babelTransform(doc, {
     configFile: false,
     plugins: [
-      'babel-plugin-transform-vue-jsx',
+      ['@vue/babel-plugin-jsx', {mergeProps: false}],
       path.resolve(__dirname, '../../babel-plugin-remove-export-keywords')
     ]
   })
@@ -22,31 +22,17 @@ const run = async value => {
   // eslint-disable-next-line no-new-func
   return new Function(
     'mdx',
-    '_mergeJSXProps',
-    `let h;
-    ${code.replace(
-      /import _mergeJSXProps from "babel-helper-vue-jsx-merge-props";/,
-      ''
-    )};
+    `${code};
 
     return {
       name: 'Mdx',
-      inject: {
-        $mdxComponents: {
-          default: () => () => ({})
-        }
-      },
-      computed: {
-        components() {
-          return this.$mdxComponents()
-        }
-      },
-      render(createElement) {
-        h = mdx.bind({createElement, components: this.components})
-        return MDXContent({components: this.components})
+      setup() {
+        const $mdxComponents = inject('$mdxComponents', {});
+
+        return () => MDXContent({components: $mdxComponents})
       }
     }`
-  )(mdx, vueMergeProps)
+  )(mdx)
 }
 
 describe('@mdx-js/vue', () => {
@@ -113,7 +99,7 @@ describe('MDXProvider', () => {
   test('should work', async () => {
     const Content = await run('# hi')
 
-    expect(mount(MDXProvider, {slots: {default: [Content]}}).html()).toEqual(
+    expect(mount(h(MDXProvider, null, Content)).html()).toEqual(
       '<div>\n  <h1>hi</h1>\n</div>'
     )
   })
