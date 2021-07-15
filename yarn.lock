@@ -24176,13 +24176,21 @@ to-style@^1.3.3:
   resolved "https://registry.yarnpkg.com/to-style/-/to-style-1.3.3.tgz#63a2b70a6f4a7d4fdc2ed57a0be4e7235cb6699c"
   integrity sha1-Y6K3Cm9KfU/cLtV6C+TnI1y2aZw=
 
-to-vfile@^6.0.0, to-vfile@^6.1.0:
+to-vfile@^6.0.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/to-vfile/-/to-vfile-6.1.0.tgz#5f7a3f65813c2c4e34ee1f7643a5646344627699"
   integrity sha512-BxX8EkCxOAZe+D/ToHdDsJcVI4HqQfmw0tCkp31zf3dNP/XWIAjU4CmeuSwsSoOzOTqHPOL0KUzyZqJplkD0Qw==
   dependencies:
     is-buffer "^2.0.0"
     vfile "^4.0.0"
+
+to-vfile@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/to-vfile/-/to-vfile-7.0.0.tgz#c05f8cfcf36df24adab0f71cb3b07e275c78d6b3"
+  integrity sha512-l2/CqmSVwXZhzyWsxsllCi/JQr9oFO4hKNG7Y1dk9nhHQnO/2hU94wxxmTehMvQKA4z+EcjSyfWJFR+Ybhy4cA==
+  dependencies:
+    is-buffer "^2.0.0"
+    vfile "^5.0.0"
 
 toidentifier@1.0.0:
   version "1.0.0"
@@ -24856,6 +24864,13 @@ unist-util-stringify-position@^2.0.0:
   dependencies:
     "@types/unist" "^2.0.2"
 
+unist-util-stringify-position@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/unist-util-stringify-position/-/unist-util-stringify-position-3.0.0.tgz#d517d2883d74d0daa0b565adc3d10a02b4a8cde9"
+  integrity sha512-SdfAl8fsDclywZpfMDTVDxA2V7LjtRDTOFd44wUJamgl6OlVngsqWjxvermMYf60elWHbxhuRCZml7AnuXCaSA==
+  dependencies:
+    "@types/unist" "^2.0.0"
+
 unist-util-visit-children@^1.0.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/unist-util-visit-children/-/unist-util-visit-children-1.1.4.tgz#e8a087e58a33a2815f76ea1901c15dec2cb4b432"
@@ -25201,6 +25216,14 @@ vfile-message@^1.0.0:
   dependencies:
     unist-util-stringify-position "^1.1.1"
 
+vfile-message@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vfile-message/-/vfile-message-3.0.1.tgz#b9bcf87cb5525e61777e0c6df07e816a577588a3"
+  integrity sha512-gYmSHcZZUEtYpTmaWaFJwsuUD70/rTY4v09COp8TGtOkix6gGxb/a8iTQByIY9ciTk9GwAwIXd/J9OPfM4Bvaw==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    unist-util-stringify-position "^3.0.0"
+
 vfile@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/vfile/-/vfile-2.3.0.tgz#e62d8e72b20e83c324bc6c67278ee272488bf84a"
@@ -25230,6 +25253,16 @@ vfile@^4.0.0, vfile@^4.2.1:
     is-buffer "^2.0.0"
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
+
+vfile@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/vfile/-/vfile-5.0.1.tgz#41c6d50d419e700424ef577fbc00dd6bc6487b7e"
+  integrity sha512-lbcf0k66x96Syy36HG+nIBFaSD/fAk589q4nETZTr0JW7eRRmrVo1vHwbD8NlHszUM5ICtFSWQ5xHC292hYZ/w==
+  dependencies:
+    "@types/unist" "^2.0.0"
+    is-buffer "^2.0.0"
+    unist-util-stringify-position "^3.0.0"
+    vfile-message "^3.0.0"
 
 vlq@^0.2.2:
   version "0.2.3"
