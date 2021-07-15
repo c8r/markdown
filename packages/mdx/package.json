@@ -55,7 +55,7 @@
     "remark-parse": "^9.0.0",
     "remark-squeeze-paragraphs": "^4.0.0",
     "unified": "^9.2.0",
-    "unist-builder": "^2.0.0"
+    "unist-builder": "^3.0.0"
   },
   "devDependencies": {
     "rehype-katex": "^4.0.0",
